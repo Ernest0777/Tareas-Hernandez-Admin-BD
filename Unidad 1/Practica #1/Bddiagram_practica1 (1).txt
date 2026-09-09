@@ -1,0 +1,18 @@
+Table usuarios {
+  id_usuario int [pk, increment]
+  nombre_usuario varchar
+  email varchar
+}
+
+Table libros {
+  id_libro int [pk, increment]
+  nombre_libro varchar
+  autor varchar
+}
+
+Table prestamos {
+  id_prestamo int [pk]
+  id_usuario int [not null, ref: > usuarios.id_usuario]
+  id_libro int [not null, ref: > libros.id_libro]
+  fecha_prestamo date
+}
